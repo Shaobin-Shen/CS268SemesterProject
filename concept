@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abraxas Wax | About</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/record-nobackground.png">
+</head>
+<body>
+    <header>
+        <h1>Abraxas Wax</h1>
+        <div id="nav"></div>
+        <script>
+            fetch("navbar.html")
+                .then(response => {
+                    if (!response.ok) throw new Error("Navbar load failed");
+                    return response.text();
+                })
+                .then(navbarHTML => {
+                    document.getElementById("nav").innerHTML = navbarHTML;
+                })
+                .catch(error => {
+                    console.warn("Using fallback navigation:", error);
+                    document.getElementById("nav").innerHTML = `
+                        <nav class="fallback-nav">
+                            <a href="index.html">Home</a>
+                            <a href="staff-picks.html">Staff Picks</a>
+                            <a href="about.html" class="active">About</a>
+                            <a href="contact.html">Contact</a>
+                            <a href="shop.html">Shop</a>
+                        </nav>
+                    `;
+                });
+        </script>
+    </header>
+
+    <main class="about">
+        <h2>All Are Welcome</h2>
+        <p>Learn more about our record store, our team, and our love for music.</p>
+
+        <div class="about-content">
+            <div class="about-text">
+                <img src="https://picsum.photos/id/1005/150/150" alt="Abraxas Wax Logo" class="about-logo">
+                <p>
+                    Since day one, Abraxas Wax has been a spot for every music lover — whether you’re hunting for a rare press, selling your old collection, or just geeking out over metal or soul. We believe music binds us, and our doors are open to fans new and old.
+                </p>
+                <p>
+                    Founded in 2020 in Eau Claire, WI, our small but passionate team curates every record with care. We specialize in vintage classics and modern gems, all inspected for quality. More than a store, we’re a community hub for live sessions, record swaps, and late-night music talks.
+                </p>
+            </div>
+
+            <div class="about-images">
+                <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/7b47536c37b5442089d3cd3e70a8b574.png~tplv-a9rns2rl98-24-95-exif:960:960.png?rcl=2025120314431687CB149415B69D6AF696&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1765348996&x-signature=zhDI7Ts1K6e%2B7eiDoJ%2FIOcUmRDI%3D" 
+                     alt="Abraxas Wax store interior with vinyl shelves and decor">
+                <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5fba6447632845d99bb960a0c0655a9d.png~tplv-a9rns2rl98-24-95-exif:960:960.png?rcl=2025120314431687CB149415B69D6AF696&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1765348996&x-signature=69KQ%2B%2F%2B5wWGE6Jbt9m0TmNYLrSc%3D" 
+                     alt="Vinyl records display at Abraxas Wax, including Leonard Cohen albums">
+                <p class="image-caption">Our cozy storefront — where music finds its way home.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Abraxas Wax | Eau Claire, WI</p>
+    </footer>
+</body>
+</html>
